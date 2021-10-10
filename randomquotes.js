@@ -17,7 +17,7 @@ const getIndex = () => {
 const displayQuote = () => {
     const index = getIndex();
     setQuoteText(quotes.quotes[index].text);
-    setAuthor(quotes.quotes[index].author);
+    undefined === quotes.quotes[index].author ? setAuthor("unknown") : setAuthor(quotes.quotes[index].author);
 }
 
 const refresh = displayQuote;
