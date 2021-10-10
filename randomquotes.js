@@ -8,9 +8,21 @@ const setAuthor = (author) => {
     quote_author_div.innerText = `– ${author}`;
 }
 
-let random_index = Math.floor(Math.random() * quotes.quotes.length)
+const getIndex = () => {
+    const random_index = Math.floor(Math.random() * quotes.quotes.length)
+    console.log(`Random index ${random_index}`);
+    return random_index;
+}
 
-console.log(`Random index ${random_index}`);
+const displayQuote = () => {
+    const index = getIndex();
+    setQuoteText(quotes.quotes[index].text);
+    setAuthor(quotes.quotes[index].author);
+}
 
-setQuoteText(quotes.quotes[random_index].text);
-setAuthor(quotes.quotes[random_index].author);
+const refresh = displayQuote;
+
+window.onload = () => {
+    console.log('document loaded');
+    displayQuote();
+}
