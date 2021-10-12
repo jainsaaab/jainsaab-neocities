@@ -44,6 +44,13 @@
             text-align: center;
         }
         
+        .dontwrap-textarea {
+            /* disable wrap */
+            white-space: pre;
+            overflow-wrap: normal;
+            overflow-x: scroll;
+        }
+        
         .input-output-box>h3 {
             margin: 0;
             background-color: aqua;
@@ -52,13 +59,15 @@
 
     <script>
         const getInput = () => document.querySelector("#input").value;
+        const $ = (...args) => document.querySelector(...args);
+        const $$ = (...args) => document.querySelectorAll(...args);
 
         const setOutput = (output) => {
-            document.querySelector("#output").value = output;
+            $("#output").value = output;
         }
 
         const getSpaces = () => {
-            let spaces = document.querySelector("#indent-count").value;
+            let spaces = $("#indent-count").value;
             if ("" === spaces || undefined === spaces) {
                 return 2;
             }
@@ -82,6 +91,21 @@
 
             setOutput(output);
         }
+
+        const toggleWrap = () => {
+            console.log("Start toggleWrap");
+            if ($("#wrap-button").innerText.toLowerCase() === "wrap") {
+                $("#wrap-button").innerText = "nowrap";
+                for (element of $$(".input-output-box > textarea")) {
+                    element.classList = [];
+                }
+            } else if ($("#wrap-button").innerText.toLowerCase() === "nowrap") {
+                $("#wrap-button").innerText = "wrap";
+                for (element of $$(".input-output-box > textarea")) {
+                    element.classList = ["dontwrap-textarea"];
+                }
+            }
+        }
     </script>
 </head>
 
@@ -93,19 +117,20 @@
         <section>
             <section class="input-output-box">
                 <h3>Input</h3>
-                <textarea id="input"></textarea>
+                <textarea id="input" class="dontwrap-textarea"></textarea>
             </section>
 
             <section class="controls">
                 <label for="indent-count">Indent with </label>
                 <input type="number" id="indent-count" value="2" />
                 <label for="indent-count">spaces</label>
+                <button id="wrap-button" onclick="toggleWrap()">wrap</button>
                 <button onclick="formatJson()">format</button>
             </section>
 
             <section class="input-output-box">
                 <h3>Output</h3>
-                <textarea readonly id="output"></textarea>
+                <textarea readonly id="output" class="dontwrap-textarea"></textarea>
             </section>
         </section>
     </div>
