@@ -28,8 +28,12 @@
             min-height: 500px;
         }
         
-        button {
-            flex: 1 20%;
+        #format-button {
+            flex: 1 90%;
+        }
+        
+        #wrap-button {
+            flex: 1 10%;
         }
         
         .controls {
@@ -54,6 +58,7 @@
         .input-output-box>h3 {
             margin: 0;
             background-color: aqua;
+            border: 1px solid gray;
         }
     </style>
 
@@ -93,7 +98,6 @@
         }
 
         const toggleWrap = () => {
-            console.log("Start toggleWrap");
             if ($("#wrap-button").innerText.toLowerCase() === "wrap") {
                 $("#wrap-button").innerText = "nowrap";
                 for (element of $$(".input-output-box > textarea")) {
@@ -125,7 +129,7 @@
                 <input type="number" id="indent-count" value="2" />
                 <label for="indent-count">spaces</label>
                 <button id="wrap-button" onclick="toggleWrap()">wrap</button>
-                <button onclick="formatJson()">format</button>
+                <button id="format-button" onclick="formatJson()">format</button>
             </section>
 
             <section class="input-output-box">
