@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+
+    <title>Json Formatter</title>
+    <style>
+        header {
+            background: purple;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin: 0;
+            line-height: 100px;
+        }
+        
+        section {
+            display: flex;
+        }
+        
+        textarea {
+            flex: 1 40%;
+            min-height: 500px;
+        }
+        
+        button {
+            flex: 1 20%;
+        }
+        
+        .controls {
+            padding: 1%;
+            flex-direction: column;
+        }
+    </style>
+
+    <script>
+        const getInput = () => document.querySelector("#input").value;
+
+        const setOutput = (output) => {
+            document.querySelector("#output").value = output;
+        }
+
+        const getSpaces = () => {
+            let spaces = document.querySelector("#indent-count").value;
+            if (spaces === "") {
+                return 2;
+            }
+
+            return Number(spaces);
+        }
+
+        const formatJson = () => {
+            let json = getInput();
+            let output = "";
+            try {
+                json = JSON.parse(json);
+                output = JSON.stringify(json, null, getSpaces());
+            } catch (e) {
+                output = e;
+            }
+
+            setOutput(output);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Json validator / Formatter</h1>
+        </header>
+        <section>
+            <textarea id="input"></textarea>
+            <section class="controls">
+                <label for="indent-count">Indent with </label>
+                <input type="number" id="indent-count" />
+                <label for="indent-count">spaces</label>
+                <button onclick="formatJson()">format</button>
+            </section>
+            <textarea readonly id="output"></textarea>
+        </section>
+    </div>
+</body>
+
+</html>

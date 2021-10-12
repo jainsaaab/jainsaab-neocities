@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+}
+
+header {
+    background: purple;
+    /* height: 100px; */
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    padding: 20px;
+    margin: 10px;
+    margin-inline: 10%;
+    background: aqua;
+}
