@@ -36,6 +36,18 @@
             padding: 1%;
             flex-direction: column;
         }
+        
+        .input-output-box {
+            flex-direction: column;
+            flex: 1 40%;
+            min-height: 500px;
+            text-align: center;
+        }
+        
+        .input-output-box>h3 {
+            margin: 0;
+            background-color: aqua;
+        }
     </style>
 
     <script>
@@ -79,14 +91,22 @@
             <h1>Json validator / Formatter</h1>
         </header>
         <section>
-            <textarea id="input"></textarea>
+            <section class="input-output-box">
+                <h3>Input</h3>
+                <textarea id="input"></textarea>
+            </section>
+
             <section class="controls">
                 <label for="indent-count">Indent with </label>
                 <input type="number" id="indent-count" value="2" />
                 <label for="indent-count">spaces</label>
                 <button onclick="formatJson()">format</button>
             </section>
-            <textarea readonly id="output"></textarea>
+
+            <section class="input-output-box">
+                <h3>Output</h3>
+                <textarea readonly id="output"></textarea>
+            </section>
         </section>
     </div>
 </body>
