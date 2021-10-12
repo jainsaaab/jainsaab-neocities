@@ -47,7 +47,7 @@
 
         const getSpaces = () => {
             let spaces = document.querySelector("#indent-count").value;
-            if (spaces === "") {
+            if ("" === spaces || undefined === spaces) {
                 return 2;
             }
 
@@ -57,11 +57,15 @@
         const formatJson = () => {
             let json = getInput();
             let output = "";
-            try {
-                json = JSON.parse(json);
-                output = JSON.stringify(json, null, getSpaces());
-            } catch (e) {
-                output = e;
+            if ("" === json) {
+                output = "Please enter JSON";
+            } else {
+                try {
+                    json = JSON.parse(json);
+                    output = JSON.stringify(json, null, getSpaces());
+                } catch (e) {
+                    output = e;
+                }
             }
 
             setOutput(output);
@@ -78,7 +82,7 @@
             <textarea id="input"></textarea>
             <section class="controls">
                 <label for="indent-count">Indent with </label>
-                <input type="number" id="indent-count" />
+                <input type="number" id="indent-count" value="2" />
                 <label for="indent-count">spaces</label>
                 <button onclick="formatJson()">format</button>
             </section>
