@@ -1,3 +1,5 @@
+// TODO: optimze this & convert it to rust wasm
+
 const generate_board = (rows, cols, mines_count) => {
     if (rows * cols < mines_count) {
         throw Error("mines count count must be less then total tiles count");
