@@ -114,30 +114,28 @@
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Json validator / Formatter</h1>
-        </header>
-        <section>
-            <section class="input-output-box">
-                <h3>Input</h3>
-                <textarea id="input" class="dontwrap-textarea"></textarea>
-            </section>
-
-            <section class="controls">
-                <label for="indent-count">Indent with </label>
-                <input type="number" id="indent-count" value="2" />
-                <label for="indent-count">spaces</label>
-                <button id="wrap-button" onclick="toggleWrap()">wrap</button>
-                <button id="format-button" onclick="formatJson()">format</button>
-            </section>
-
-            <section class="input-output-box">
-                <h3>Output</h3>
-                <textarea readonly id="output" class="dontwrap-textarea"></textarea>
-            </section>
+    <header>
+        <h1>Json validator / Formatter</h1>
+    </header>
+    <section>
+        <section class="input-output-box">
+            <h3>Input</h3>
+            <textarea id="input" class="dontwrap-textarea"></textarea>
         </section>
-    </div>
+
+        <section class="controls">
+            <label for="indent-count">Indent with </label>
+            <input type="number" id="indent-count" value="2" />
+            <label for="indent-count">spaces</label>
+            <button id="wrap-button" onclick="toggleWrap()">wrap</button>
+            <button id="format-button" onclick="formatJson()">format</button>
+        </section>
+
+        <section class="input-output-box">
+            <h3>Output</h3>
+            <textarea readonly id="output" class="dontwrap-textarea"></textarea>
+        </section>
+    </section>
 </body>
 
 </html>
