@@ -63,9 +63,10 @@
     </style>
 
     <script>
-        const getInput = () => document.querySelector("#input").value;
         const $ = (...args) => document.querySelector(...args);
         const $$ = (...args) => document.querySelectorAll(...args);
+
+        const getInput = () => $("#input").value;
 
         const setOutput = (output) => {
             $("#output").value = output;
