@@ -1,6 +1,6 @@
 // TODO: optimze this & convert it to rust wasm
 
-const constants = { 'MINE': 'M' }
+const constants = { 'MINE': '💥' }
 Object.freeze(constants);
 
 const generate_board = (rows, cols, mines_count) => {
@@ -19,7 +19,6 @@ const generate_board = (rows, cols, mines_count) => {
     for (x of mine_idxs) {
         board[Math.floor(x / cols)][x % cols] = constants.MINE;
     }
-
 
 
     const get_nearby_mine_count = (i, j) => {
@@ -46,10 +45,6 @@ const generate_board = (rows, cols, mines_count) => {
             board[i][j] = get_nearby_mine_count(i, j);
         }
     }
-
-    // for (var i = 0; i < rows; i++) {
-    //     console.log(board[i].toString());
-    // }
 
     return board;
 }
