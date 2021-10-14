@@ -19,6 +19,10 @@ const generate_and_display_board = () => {
     const cols = $('#cols').value;
     const mines = $('#mines').value;
 
+    if (rows < 0 || cols < 0 || mines < 0) {
+        throw new Error("value must be +ve");
+    }
+
     const board = generate_board(rows, cols, mines);
     for (let i = 0; i < rows; i++) {
         let tr = create_row();
