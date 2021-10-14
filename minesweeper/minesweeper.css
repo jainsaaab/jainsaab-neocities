@@ -1,0 +1,11 @@
+table {
+    table-layout: fixed;
+    width: 16em;
+}
+
+td {
+    border: 1px solid black;
+    text-align: center;
+    /* margin: 100px; */
+    padding: 10px;
+}
