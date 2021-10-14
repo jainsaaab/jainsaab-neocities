@@ -1,6 +1,4 @@
-const rows = 12;
-const cols = 6;
-const board = generate_board(rows, cols, 10);
+const $ = (...args) => document.querySelector(...args);
 
 const create_row = () => {
     const tr = document.createElement("tr");
@@ -13,12 +11,20 @@ const create_cell = (value) => {
     return td;
 }
 
-const table = document.querySelector("#board-table");
+const generate_and_display_board = () => {
+    const table = $("#board_table");
+    table.innerHTML = "";
 
-for (let i = 0; i < rows; i++) {
-    let tr = create_row();
-    for (let j = 0; j < cols; j++) {
-        tr.appendChild(create_cell(board[i][j]));
+    const rows = $('#rows').value;
+    const cols = $('#cols').value;
+    const mines = $('#mines').value;
+
+    const board = generate_board(rows, cols, mines);
+    for (let i = 0; i < rows; i++) {
+        let tr = create_row();
+        for (let j = 0; j < cols; j++) {
+            tr.appendChild(create_cell(board[i][j]));
+        }
+        table.appendChild(tr);
     }
-    table.appendChild(tr);
 }

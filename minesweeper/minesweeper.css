@@ -1,11 +1,27 @@
-table {
+#board_table {
     table-layout: fixed;
-    width: 16em;
 }
 
-td {
+#board_table>tr>td {
     border: 1px solid black;
     text-align: center;
     /* margin: 100px; */
+    width: 1em;
     padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    line-height: 100px;
+    margin: 0;
+}
+
+header {
+    background: purple;
+    /* height: 100px; */
+}
+
+.container {
+    /* margin-inline: 40%; */
 }

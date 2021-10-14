@@ -10,7 +10,28 @@
 </head>
 
 <body>
-    <table id="board-table"></table>
+    <header>
+        <h1>Minesweeper board generator</h1>
+    </header>
+
+    <section class="container">
+        <section>
+            <table>
+                <tr>
+                    <td><label for="rows">rows</label></td>
+                    <td><input type="number" id="rows" value='12' /></td>
+                    <td><label for="cols">cols</label></td>
+                    <td><input type="number" id="cols" value='6' /></td>
+                </tr>
+                <tr>
+                    <td><label for="mines">mines</label></td>
+                    <td><input type="number" id="mines" value='10' /></td>
+                    <td colspan="2"><button onclick="generate_and_display_board()">Generate board</button></td>
+                </tr>
+            </table>
+        </section>
+        <table id="board_table"></table>
+    </section>
     <script src='generate_board.js'></script>
     <script src='minesweeper.js'></script>
 </body>

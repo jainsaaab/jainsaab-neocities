@@ -8,7 +8,7 @@ const generate_board = (rows, cols, mines_count) => {
         throw Error("mines count count must be less then total tiles count");
     }
 
-    mine_idxs = new Set();
+    const mine_idxs = new Set();
     while (mine_idxs.size != mines_count) {
         mine_idxs.add(Math.floor(Math.random() * rows * cols));
     }
