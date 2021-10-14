@@ -36,7 +36,7 @@ const generate_board = (rows, cols, mines_count) => {
         if (i + 1 < rows && board[i + 1][j] === constants.MINE) count++;
         if (i + 1 < rows && j + 1 < cols && board[i + 1][j + 1] === constants.MINE) count++;
 
-        return count;
+        return 0 == count ? ' ' : count;
     }
 
 
