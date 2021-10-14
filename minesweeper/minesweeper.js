@@ -28,3 +28,5 @@ const generate_and_display_board = () => {
         table.appendChild(tr);
     }
 }
+
+$("#generate_button").click()
