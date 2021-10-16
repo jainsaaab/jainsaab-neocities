@@ -25,7 +25,7 @@ const generate_and_display_board = () => {
 
     const board = generate_board(rows, cols, mines);
     for (let i = 0; i < rows; i++) {
-        let tr = create_row();
+        const tr = create_row();
         for (let j = 0; j < cols; j++) {
             tr.appendChild(create_cell(board[i][j]));
         }

@@ -1,0 +1,40 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background: purple;
+    text-align: center;
+    color: white;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin: 0px;
+}
+
+header>p>a {
+    color: aliceblue;
+}
+
+section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    padding-inline: 2%;
+    margin-inline: 10%;
+    background: aqua;
+}
+
+@media only screen and (max-width: 950px) {
+    article {
+        margin-inline: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    article {
+        margin-inline: 2%;
+    }
+}
